@@ -19,12 +19,28 @@ const showTools = (data) =>{
                 <p>2. ${tool.features[1] ? tool.features[1] : 'Not available'}</p>
                 <p>3. ${tool.features[2] ? tool.features[2] : 'Not available'}</p>
                 <hr class="my-4"/>
-                <h2 class="text-xl font-bold">${tool.name}</h2>
-                <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="text-xl font-bold mb-2">${tool.name}</h2>
+                        <div class="flex gap-3 justify-center items-center">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <p>${tool.published_in}</p>
+                        </div>
+                    </div>
+                    <label for="my-modal-5" onclick="toolDetails(tool.id)" class="btn bg-orrange-100 text-orrange rounded-3xl w-11 h-11 border-0 p-1"><i class="fa-solid fa-arrow-right"></i></label>
+                    
                 </div>
+                
             </div>
         </div>
         `
     })
+}
+
+
+
+
+
+const toolDetails = (id) => {
+    
 }

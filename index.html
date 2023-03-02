@@ -8,13 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/e0ebe67689.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/style.css">
     <script>
         tailwind.config = {
           theme: {
             extend: {
               colors: {
-                clifford: '#EB5757',
+                orrange: '#EB5757',
+                'orrange-100': '#FEF7F7' ,
               }
             }
           }
@@ -25,7 +27,7 @@
     <!-- Header section starts -->
     <header class="container mx-auto text-center my-8">
         <h1 class="text-5xl font-extrabold mb-8">AI Universe Hub</h1>
-        <button class="btn border-0 bg-clifford text-white">Sort By Date</button>
+        <button class="btn border-0 bg-orrange text-white">Sort By Date</button>
     </header>
     <!-- Header section ends -->
 
@@ -33,14 +35,23 @@
     <main class="container mx-auto mb-9">
         <section>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5" id="tools-container">
-
+                
             </div>
         </section>
     </main>
     <!-- Main section ends -->
 
 
-
+    <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+    <div class="modal">
+    <div class="modal-box w-11/12 max-w-5xl">
+        <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+        <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+        <div class="modal-action">
+        <label for="my-modal-5" class="btn">Yay!</label>
+        </div>
+    </div>
+    </div>
     <!-- Js files below -->
     <script src="js/main.js"></script>
 </body>
