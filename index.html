@@ -15,8 +15,10 @@
           theme: {
             extend: {
               colors: {
-                orrange: '#EB5757',
-                'orrange-100': '#FEF7F7' ,
+                misty: '#EB5757',
+                'misty-100': '#FEF7F7',
+                'misty-200': 'rgba(235, 87, 87, 0.05)',
+                
               }
             }
           }
@@ -27,7 +29,7 @@
     <!-- Header section starts -->
     <header class="container mx-auto text-center my-8">
         <h1 class="text-5xl font-extrabold mb-8">AI Universe Hub</h1>
-        <button class="btn border-0 bg-orrange text-white">Sort By Date</button>
+        <button class="btn border-0 bg-misty text-white">Sort By Date</button>
     </header>
     <!-- Header section ends -->
 
@@ -42,16 +44,55 @@
     <!-- Main section ends -->
 
 
+
+
+    <!-- Modal Item starts -->
     <input type="checkbox" id="my-modal-5" class="modal-toggle" />
     <div class="modal">
-    <div class="modal-box w-11/12 max-w-5xl">
-        <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
-        <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-        <div class="modal-action">
-        <label for="my-modal-5" class="btn">Yay!</label>
+    <div class="modal-box relative w-11/12 max-w-5xl p-3 md:p-16" >
+        <div class="grid grid-cols-1 lg:grid-cols-2 justify-center gap-7 self-center">
+            <div class="card card-compact bg-misty-200 border border-misty bg-base-100 shadow-xl">
+            <div class="card-body">
+              <h2 id="modalTitle" class="card-title">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h2>
+              <div class="flex justify-between gap-3 items-center">
+                <div id="pricing1" class="p-4 h-full rounded bg-white text-green-500 font-semibold"><p></p></div>
+                <div id="pricing2" class="p-4 h-full rounded bg-white text-yellow-500 font-semibold"><p></p></div>
+                <div id="pricing3" class="p-4 h-full rounded bg-white text-pink-600 font-semibold"><p></p></div>
+              </div>
+              <div class="flex justify-between items-center"> 
+                <div>
+                    <h2 class="text-xl font-bold mb-2">Features</h2>
+                    <p id="fearure1"></p>
+                    <p class="my-2" id="fearure2"></p>
+                    <p id="fearure3"></p>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold mb-2">Integrations</h2>
+                    <p id="in1"></p>
+                    <p id="in2"></p>
+                    <p id="in3"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card card-compact bg-base-100 border border-slate-100 shadow-xl">
+            <figure class="p-4"><img class="rounded-xl" id="modal-img" alt="Shoes" /></figure>
+            <div class="card-body">
+              <h2 id="modal-input-example" class="card-title">Shoes!</h2>
+              <p id="modal-output-example">If a dog chews shoes whose shoes does he choose?</p>
+            </div>
+          </div>
         </div>
+        
+        
+            <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        
     </div>
     </div>
+    <!-- Modal Item starts -->
+
     <!-- Js files below -->
     <script src="js/main.js"></script>
 </body>
