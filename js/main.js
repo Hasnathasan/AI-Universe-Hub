@@ -52,7 +52,8 @@ const setValueOfData = (data) => {
             </div>
         </div>
         `;
-    })
+    });
+    loding(false);
 }
 
 const sortByDate = (data) => {
@@ -102,7 +103,16 @@ const showDetailsInModal = data => {
     }
     console.log(typeof data.accuracy.score)
 }
-
+const loding = (isLoding) => {
+    const loder = document.getElementById('progress');
+    if (isLoding) {
+        loder.classList.remove('hidden');
+    }
+    else {
+        loder.classList.add('hidden');
+    }
+}
+loding(true);
 const seeMore = () => {
     fetchApiTools();
 }
