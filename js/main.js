@@ -2,12 +2,11 @@ const fetchApiTools = async (slice) => {
     const url = 'https://openapi.programming-hero.com/api/ai/tools';
     const res = await fetch(url);
     const data = await res.json();
-    showTools(data.data.tools, slice)
+    showTools(data.data.tools, slice);
 }
 
 const showTools = (data, slice) => {
-    const toolsContainer = document.getElementById('tools-container');
-    toolsContainer.innerHTML = '';
+    
     const seeMoreBtn = document.getElementById('see-more');
     if (slice && data.length > 6) {
         data = data.slice(0, 6);
@@ -16,6 +15,17 @@ const showTools = (data, slice) => {
     else {
         seeMoreBtn.classList.add('hidden');
     };
+    console.log(data);
+    setValueOfData(data);
+    document.getElementById('short-date').addEventListener('click', function() {
+        sortByDate(data);
+    });
+}
+
+
+const setValueOfData = (data) => {
+    const toolsContainer = document.getElementById('tools-container');
+    toolsContainer.innerHTML = '';
     data.forEach(tool => {
         console.log(tool);
         toolsContainer.innerHTML += `
@@ -45,6 +55,10 @@ const showTools = (data, slice) => {
     })
 }
 
+const sortByDate = (data) => {
+    data.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
+    setValueOfData(data);
+}
 
 
 
@@ -53,7 +67,7 @@ const toolDetails = (id) => {
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => showDetailsInModal(data.data));
+        .then(data => showDetailsInModal(data.data))
 }
 const showDetailsInModal = data => {
     console.log(data);
