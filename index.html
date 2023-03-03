@@ -34,14 +34,17 @@
 
     <!-- Main section starts -->
     <main class="container mx-auto mb-9">
-        <section>
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5" id="tools-container">
-                
-            </div>
-            <div class="text-center">
-              <button id="see-more" onclick="seeMore()" class="btn bg-misty border-0 hidden my-9">See More</button>
-            </div>
-        </section>
+      <div class="text-center mt-24 hidden">
+        <progress class="progress w-56"></progress>
+      </div>
+      <section>
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5" id="tools-container">
+              
+          </div>
+          <div class="text-center">
+            <button id="see-more" onclick="seeMore()" class="btn bg-misty border-0 hidden my-9">See More</button>
+          </div>
+      </section>
     </main>
     <!-- Main section ends -->
 
@@ -56,8 +59,8 @@
             <div class="card card-compact bg-misty200 border border-misty bg-base-100 shadow-xl">
             <div class="card-body">
               <h2 id="modalTitle" class="card-title"></h2>
-              <div class="flex justify-between gap-3 items-center">
-                <div class="p-4 h-full rounded bg-white text-green-500 font-semibold"><p id="pricing1" ></p></div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 justify-between gap-3 items-center">
+                <div class="p-4 h-full rounded bg-white text-sm md:text-base text-green-500 font-semibold"><p id="pricing1" ></p></div>
                 <div class="p-4 h-full rounded bg-white text-yellow-500 font-semibold"><p id="pricing2"></p></div>
                 <div class="p-4 h-full rounded bg-white text-pink-600 font-semibold"><p id="pricing3"></p></div>
               </div>
@@ -86,12 +89,16 @@
 
 
           <div class="card card-compact bg-base-100 border border-slate-100 shadow-xl">
-            <figure class="p-4"><img class="rounded-xl" id="modal-img" alt="Shoes" /></figure>
+            <figure class="p-4 relative">
+              <img class="rounded-xl" id="modal-img" alt="Shoes" />
+              <span id="score" class="absolute top-7 right-8 bg-misty rounded px-2 text-sm font-medium hidden text-white"></span>
+            </figure>
             <div class="card-body">
               <h2 id="modal-input-example" class="card-title"></h2>
               <p id="modal-output-example"></p>
             </div>
           </div>
+          
         </div>
         
         

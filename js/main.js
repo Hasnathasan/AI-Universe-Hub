@@ -90,8 +90,17 @@ const showDetailsInModal = data => {
     }
     
     document.getElementById('modal-img').setAttribute('src', `${data.image_link[0]}`);
-    document.getElementById('modal-input-example').innerHTML = `${data.input_output_examples ? data.input_output_examples[0].input : 'Can you give any Example'}`;
-    document.getElementById('modal-output-example').innerHTML = `${data.input_output_examples ? data.input_output_examples[0].output : 'No! Not yot! Take a break!!!'}`;
+    document.getElementById('modal-input-example').innerText = `${data.input_output_examples ? data.input_output_examples[0].input : 'Can you give any Example'}`;
+    document.getElementById('modal-output-example').innerText = `${data.input_output_examples ? data.input_output_examples[0].output : 'No! Not yot! Take a break!!!'}`;
+    const score = document.getElementById('score');
+    if(typeof data.accuracy.score === 'number'){
+        score.classList.remove('hidden');
+        score.innerText = `${data.accuracy.score * 100}% accuracy`;
+    }
+    else{
+        score.classList.add('hidden');
+    }
+    console.log(typeof data.accuracy.score)
 }
 
 const seeMore = () => {
