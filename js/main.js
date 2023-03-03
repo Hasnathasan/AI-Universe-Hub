@@ -6,7 +6,7 @@ const fetchApiTools = async (slice) => {
 }
 
 const showTools = (data, slice) => {
-    
+
     const seeMoreBtn = document.getElementById('see-more');
     if (slice && data.length > 6) {
         data = data.slice(0, 6);
@@ -16,7 +16,7 @@ const showTools = (data, slice) => {
         seeMoreBtn.classList.add('hidden');
     };
     setValueOfData(data);
-    document.getElementById('short-date').addEventListener('click', function() {
+    document.getElementById('short-date').addEventListener('click', function () {
         sortByDate(data);
     });
 }
@@ -73,8 +73,8 @@ const showDetailsInModal = data => {
     document.getElementById('pricing1').innerText = `${data.pricing ? data.pricing[0].price : 'Free of Cost/ Basic'} ${data.pricing ? data.pricing[0].plan : ''}`;
     document.getElementById('pricing2').innerText = `${data.pricing ? data.pricing[1].price : 'Free of Cost/ Pro'} ${data.pricing ? data.pricing[1].plan : ''}`;
     document.getElementById('pricing3').innerText = `${data.pricing ? data.pricing[2].price : 'Free of Cost/ Enterprice'} ${data.pricing ? data.pricing[2].plan : ''}`;
-    
-    
+
+
     const features = data.features;
     const featureContainer = document.getElementById('feature-container');
     featureContainer.innerHTML = '';
@@ -82,34 +82,34 @@ const showDetailsInModal = data => {
         featureContainer.innerHTML += `
             <li class="mb-2 list-disc">${features[order].feature_name}</li>
         `;
-        }
-    
+    }
+
 
     const integrations = data.integrations;
     const integrationsContainer = document.getElementById('integrations-container');
     integrationsContainer.innerHTML = '';
-    if(Array.isArray(integrations) === true){
+    if (Array.isArray(integrations) === true) {
         for (const integration of integrations) {
-                integrationsContainer.innerHTML += `
+            integrationsContainer.innerHTML += `
                     <li class="mb-2 list-disc">${integration}</li>
                 `;
         }
     }
-    else{
-        integrationsContainer.innerHTML =`
+    else {
+        integrationsContainer.innerHTML = `
             <li>No Data Found</li>
         `;
     }
-    
+
     document.getElementById('modal-img').setAttribute('src', `${data.image_link[0]}`);
     document.getElementById('modal-input-example').innerText = `${data.input_output_examples ? data.input_output_examples[0].input : 'Can you give any Example'}`;
     document.getElementById('modal-output-example').innerText = `${data.input_output_examples ? data.input_output_examples[0].output : 'No! Not yot! Take a break!!!'}`;
     const score = document.getElementById('score');
-    if(typeof data.accuracy.score === 'number'){
+    if (typeof data.accuracy.score === 'number') {
         score.classList.remove('hidden');
         score.innerText = `${data.accuracy.score * 100}% accuracy`;
     }
-    else{
+    else {
         score.classList.add('hidden');
     }
 }

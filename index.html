@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI-universe-hub</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/e0ebe67689.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/style.css">
+    <script
+      src="https://kit.fontawesome.com/e0ebe67689.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/style.css" />
     <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                misty: '#EB5757',
-                misty100: '#FEF7F7',
-                misty200: 'rgba(235, 87, 87, 0.05)',
-                
-              }
-            }
-          }
-        }
-      </script>
-</head>
-<body onload="fetchApiTools(6)">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              misty: "#EB5757",
+              misty100: "#FEF7F7",
+              misty200: "rgba(235, 87, 87, 0.05)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body onload="fetchApiTools(6)">
     <!-- Header section starts -->
     <header class="container mx-auto text-center my-8">
-        <h1 class="text-5xl font-extrabold mb-8">AI Universe Hub</h1>
-        <button id="short-date" class="btn border-0 bg-misty text-white">Sort By Date</button>
+      <h1 class="text-5xl font-extrabold mb-8">AI Universe Hub</h1>
+      <button id="short-date" class="btn border-0 bg-misty text-white">
+        Sort By Date
+      </button>
     </header>
     <!-- Header section ends -->
 
@@ -38,71 +46,94 @@
         <progress class="progress w-56"></progress>
       </div>
       <section>
-          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5" id="tools-container">
-              
-          </div>
-          <div class="text-center">
-            <button id="see-more" onclick="seeMore()" class="btn bg-misty border-0 hidden my-9">See More</button>
-          </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5"
+          id="tools-container"
+        ></div>
+        <div class="text-center">
+          <button
+            id="see-more"
+            onclick="seeMore()"
+            class="btn bg-misty border-0 hidden my-9"
+          >
+            See More
+          </button>
+        </div>
       </section>
     </main>
     <!-- Main section ends -->
 
-
-
-
     <!-- Modal Item starts -->
     <input type="checkbox" id="my-modal-5" class="modal-toggle" />
     <div class="modal">
-    <div class="modal-box relative w-11/12 max-w-5xl p-3 md:p-16" >
-        <div class="grid grid-cols-1 lg:grid-cols-2 justify-center gap-7 self-center">
-            <div class="card card-compact bg-misty200 border border-misty bg-base-100 shadow-xl">
+      <div class="modal-box relative w-11/12 max-w-5xl p-3 md:p-16">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 justify-center gap-7 self-center"
+        >
+          <div
+            class="card card-compact bg-misty200 border border-misty bg-base-100 shadow-xl"
+          >
             <div class="card-body">
               <h2 id="modalTitle" class="card-title"></h2>
-              <div class="grid grid-cols-2 sm:grid-cols-3 justify-between gap-3 items-center">
-                <div class="p-4 h-full rounded bg-white text-sm md:text-base text-green-500 font-semibold"><p id="pricing1" ></p></div>
-                <div class="p-4 h-full rounded bg-white text-yellow-500 font-semibold"><p id="pricing2"></p></div>
-                <div class="p-4 h-full rounded bg-white text-pink-600 font-semibold"><p id="pricing3"></p></div>
+              <div
+                class="grid grid-cols-2 sm:grid-cols-3 justify-between gap-3 items-center"
+              >
+                <div
+                  class="p-4 h-full rounded bg-white text-sm md:text-base text-green-500 font-semibold"
+                >
+                  <p id="pricing1"></p>
+                </div>
+                <div
+                  class="p-4 h-full rounded bg-white text-yellow-500 font-semibold"
+                >
+                  <p id="pricing2"></p>
+                </div>
+                <div
+                  class="p-4 h-full rounded bg-white text-pink-600 font-semibold"
+                >
+                  <p id="pricing3"></p>
+                </div>
               </div>
-              <div class="flex justify-between">  
+              <div class="flex justify-between">
                 <div class="my-4">
-                    <h2 class="text-xl font-bold mb-4">Features</h2>
-                    <ul class="pl-2" id="feature-container">
-                    </ul>
-                    
+                  <h2 class="text-xl font-bold mb-4">Features</h2>
+                  <ul class="pl-2" id="feature-container"></ul>
                 </div>
                 <div>
-                    <h2 class="text-xl font-bold my-4">Integrations</h2>
-                    <ul id="integrations-container">
-                    </ul>
-                    
+                  <h2 class="text-xl font-bold my-4">Integrations</h2>
+                  <ul id="integrations-container"></ul>
                 </div>
               </div>
             </div>
           </div>
 
-
-          <div class="card card-compact bg-base-100 border border-slate-100 shadow-xl">
+          <div
+            class="card card-compact bg-base-100 border border-slate-100 shadow-xl"
+          >
             <figure class="p-4 relative">
               <img class="rounded-xl" id="modal-img" alt="Shoes" />
-              <span id="score" class="absolute top-7 right-8 bg-misty rounded px-2 text-sm font-medium hidden text-white"></span>
+              <span
+                id="score"
+                class="absolute top-7 right-8 bg-misty rounded px-2 text-sm font-medium hidden text-white"
+              ></span>
             </figure>
             <div class="card-body">
               <h2 id="modal-input-example" class="card-title"></h2>
               <p id="modal-output-example"></p>
             </div>
           </div>
-          
         </div>
-        
-        
-            <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        
-    </div>
+
+        <label
+          for="my-modal-5"
+          class="btn btn-sm btn-circle absolute right-2 top-2"
+          >✕</label
+        >
+      </div>
     </div>
     <!-- Modal Item starts -->
 
     <!-- Js files below -->
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
