@@ -15,7 +15,6 @@ const showTools = (data, slice) => {
     else {
         seeMoreBtn.classList.add('hidden');
     };
-    console.log(data);
     setValueOfData(data);
     document.getElementById('short-date').addEventListener('click', function() {
         sortByDate(data);
@@ -27,7 +26,6 @@ const setValueOfData = (data) => {
     const toolsContainer = document.getElementById('tools-container');
     toolsContainer.innerHTML = '';
     data.forEach(tool => {
-        console.log(tool);
         toolsContainer.innerHTML += `
         <div class="card card-compact w-full bg-base-100 border border-slate-100 shadow-xl">
             <figure class="p-4 h-72"><img class="rounded-xl h-full" src="${tool.image}" alt="Shoes" /></figure>
@@ -76,19 +74,32 @@ const showDetailsInModal = data => {
     document.getElementById('pricing1').innerText = `${data.pricing ? data.pricing[0].price : 'Free of Cost/ Basic'} ${data.pricing ? data.pricing[0].plan : ''}`;
     document.getElementById('pricing2').innerText = `${data.pricing ? data.pricing[1].price : 'Free of Cost/ Pro'} ${data.pricing ? data.pricing[1].plan : ''}`;
     document.getElementById('pricing3').innerText = `${data.pricing ? data.pricing[2].price : 'Free of Cost/ Enterprice'} ${data.pricing ? data.pricing[2].plan : ''}`;
-    document.getElementById('fearure1').innerText = `${data.features[1] ? data.features[1].feature_name : 'Not Available'}`;
-    document.getElementById('fearure2').innerText = `${data.features[2] ? data.features[2].feature_name : 'Not Available'}`;
-    document.getElementById('fearure3').innerText = `${data.features[3] ? data.features[3].feature_name : 'Not Available'}`;
-    document.getElementById('fearure4').innerText = `${data.features[4] ? data.features[4].feature_name : ' '}`;
-    if(Array.isArray(data.integrations) === true){
-        document.getElementById('in1').innerText = `${data.integrations ? data.integrations[0] : 'Not Available'}`;
-        document.getElementById('in2').innerText = `${data.integrations[1] ? data.integrations[1] : 'Not Available'}`;
-        document.getElementById('in3').innerText = `${data.integrations[2] ? data.integrations[2] : 'Not Available'}`;
+    
+    
+    const features = data.features;
+    const featureContainer = document.getElementById('feature-container');
+    featureContainer.innerHTML = '';
+    for (const order in features) {
+        featureContainer.innerHTML += `
+            <li class="mb-2">${features[order].feature_name}</li>
+        `;
+        }
+    
+
+    const integrations = data.integrations;
+    const integrationsContainer = document.getElementById('integrations-container');
+    integrationsContainer.innerHTML = '';
+    if(Array.isArray(integrations) === true){
+        for (const integration of integrations) {
+                integrationsContainer.innerHTML += `
+                    <li class="mb-2">${integration}</li>
+                `;
+        }
     }
     else{
-        document.getElementById('in1').innerText = 'Not Available';
-        document.getElementById('in2').innerText = ' ';
-        document.getElementById('in3').innerText = ' ';
+        integrationsContainer.innerHTML =`
+            <li>Not Available</li>
+        `;
     }
     
     document.getElementById('modal-img').setAttribute('src', `${data.image_link[0]}`);
@@ -102,7 +113,6 @@ const showDetailsInModal = data => {
     else{
         score.classList.add('hidden');
     }
-    console.log(typeof data.accuracy.score)
 }
 const loding = (isLoding) => {
     const loder = document.getElementById('progress');
