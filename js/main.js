@@ -69,7 +69,6 @@ const toolDetails = (id) => {
         .then(data => showDetailsInModal(data.data))
 }
 const showDetailsInModal = data => {
-    console.log(data);
     document.getElementById('modalTitle').innerText = `${data.description}`;
     document.getElementById('pricing1').innerText = `${data.pricing ? data.pricing[0].price : 'Free of Cost/ Basic'} ${data.pricing ? data.pricing[0].plan : ''}`;
     document.getElementById('pricing2').innerText = `${data.pricing ? data.pricing[1].price : 'Free of Cost/ Pro'} ${data.pricing ? data.pricing[1].plan : ''}`;
@@ -81,7 +80,7 @@ const showDetailsInModal = data => {
     featureContainer.innerHTML = '';
     for (const order in features) {
         featureContainer.innerHTML += `
-            <li class="mb-2">${features[order].feature_name}</li>
+            <li class="mb-2 list-disc">${features[order].feature_name}</li>
         `;
         }
     
@@ -92,13 +91,13 @@ const showDetailsInModal = data => {
     if(Array.isArray(integrations) === true){
         for (const integration of integrations) {
                 integrationsContainer.innerHTML += `
-                    <li class="mb-2">${integration}</li>
+                    <li class="mb-2 list-disc">${integration}</li>
                 `;
         }
     }
     else{
         integrationsContainer.innerHTML =`
-            <li>Not Available</li>
+            <li>No Data Found</li>
         `;
     }
     
